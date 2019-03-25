@@ -28,7 +28,7 @@
    		<h1>Adote um amigo</h1>
    		<h3>Salve uma vida e faca ela feliz</h3>
    		<div class="btn">
-   			<button id="btn" type="button" target="_blank" onclick="location.EscondeElemento('sigin')">Entrar</button>
+   			<button id="btn" type="button" target="_blank" onclick="document.getElementById('singin').style.display = 'flex';">Entrar</button>
    			<button action="cadastrar.html">Faca parte</button>
    		</div>
    </div>
@@ -40,7 +40,7 @@
 			<input placeholder="Senha" name="senha" type="password"/>
 			<button type="submit">Entrar</button>
 			<div class="end">
-				<img src="assets/seta.png" type="img/png"/>
+				<a onclick="document.getElementById('singin').style.display = 'none';"><img src="assets/seta.png" type="img/png"/></a>
 				<h4>Lorem ipsum <b>Lorem ipsum</b> Lorem ipsum</h4>
 			</div>
 			

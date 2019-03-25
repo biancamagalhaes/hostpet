@@ -4,22 +4,25 @@ body{
 
 
 #video{
-	max-height: fit-content;
-    width: 10em;
+    width: 217vh;
     display: inline-block;
     width: -webkit-fill-available;
     position: fixed;
 }
 
 .head{
-	display: inline-flex;
-    position: relative;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	position: relative;
 	
 }
 
 .head a{
 	color: white;
-    margin: 1em 0em 0em 5em;
+    margin: -1em 0em 0em 2em;
     font-size: 22px;
     font-weight: 500;
     font-family: sans-serif;
@@ -38,7 +41,7 @@ body{
 }
 
 .icons a{
-	margin: 0em -1em 0em;
+	margin: -2em -1em 0em;
 	text-decoration: none;
 	
 }
@@ -132,7 +135,7 @@ body{
 .singin input{
 	border-style: solid;
     display: flex;
-    width: 26em;
+    width: 20em;
     /* justify-content: center; */
     height: 3em;
     margin-top: 2em;
@@ -157,6 +160,7 @@ body{
 
 .end{
 	display: inline-flex;
+	margin-top: -5%;
 }
 
 .end img{
