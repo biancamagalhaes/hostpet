@@ -1,0 +1,99 @@
+body{
+	margin: 0px;
+}
+
+
+#video{
+	max-height: fit-content;
+    width: 10em;
+    display: inline-block;
+    width: -webkit-fill-available;
+    position: fixed;
+}
+
+.head{
+	display: inline-flex;
+    position: relative;
+	
+}
+
+.head a{
+	color: white;
+    margin: 1em 0em 0em 5em;
+    font-size: 22px;
+    font-weight: 500;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+.head img{
+	width: 15rem;
+    height: 8rem;
+    margin-left: 3em;
+}
+
+.icons{
+	display:inline-flex;
+	position: relative;
+	margin-left: 2em;
+}
+
+.icons a{
+	margin: 0em -1em 0em;
+	text-decoration: none;
+	
+}
+
+.icons img{
+	width: 2rem !important;
+    height: 2rem !important;
+    margin-top: 1em;
+}
+
+.main{
+	position: relative;
+	float: right;
+	margin-right: 3em;
+	margin-top: 3em;
+}
+
+.main h1{
+	color: white;
+    font-size: 64px;
+    text-align: center;
+    margin-top: -8%;
+    font-family: sans-serif;
+}
+
+.main h2{
+	color: white;
+    font-size: 50px;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.main h3{
+	color: white;
+    font-size: 20px;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 200;
+    margin-top: -1em;
+}
+
+.btn{
+	position: relative;
+    justify-content: center;
+    display: flex;
+}
+
+.btn button{
+	border-radius: 10px;
+    width: 9em;
+    height: 3em;
+    margin-left: 2em;
+    font-size: medium;
+    background-image: linear-gradient(87deg,#5ddaff,#3672e3);
+    text-decoration: none;
+    color: white;
+    border: none;
+}
