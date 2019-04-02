@@ -38,9 +38,10 @@ public class Autorizacao implements Filter {
 		HttpServletRequest r = (HttpServletRequest)request;
 		System.out.println(r.getRequestURI());
 		String uri = r.getRequestURI();
-		if(uri.endsWith("/index.jsp") || uri.endsWith("/ValidarLogin") || uri.endsWith(".css") || uri.endsWith(".png") || uri.endsWith("/.jpg") || uri.endsWith("/.mp4")){
-			chain.doFilter(request, response);
-		}else{
+		// if(uri.endsWith("/index.jsp") || uri.endsWith("/ValidarLogin") || uri.endsWith(".css") || uri.endsWith(".png") || uri.endsWith("/.jpg") || uri.endsWith("/.mp4")){
+		if (uri.matches("(\.(css|png|jpe?g|mp4)|index\.jsp)$")) { //RegExr (testar)
+		chain.doFilter(request, response);
+		} else{
 			Object o = r.getSession().getAttribute("objeto");
 			if(o != null){
 				chain.doFilter(request, response);
