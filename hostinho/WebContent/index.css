@@ -1,0 +1,184 @@
+body{
+	margin: 0px;
+}
+
+
+#video{
+    width: 217vh;
+    display: inline-block;
+    width: -webkit-fill-available;
+    position: fixed;
+}
+
+.head{
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	position: relative;
+	
+}
+
+.head a{
+	color: white;
+    margin: -1em 0em 0em 2em;
+    font-size: 22px;
+    font-weight: 500;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+.head img{
+	width: 15rem;
+    height: 8rem;
+    margin-left: 3em;
+}
+
+.icons{
+	display:inline-flex;
+	position: relative;
+	margin-left: 2em;
+}
+
+.icons a{
+	margin: -2em -1em 0em;
+	text-decoration: none;
+	
+}
+
+.icons img{
+	width: 2rem !important;
+    height: 2rem !important;
+    margin-top: 1em;
+}
+
+.main{
+	position: relative;
+	float: right;
+	margin-right: 3em;
+	margin-top: 3em;
+}
+
+.main h1{
+	color: white;
+    font-size: 64px;
+    text-align: center;
+    margin-top: -8%;
+    font-family: sans-serif;
+}
+
+.main h2{
+	color: white;
+    font-size: 50px;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.main h3{
+	color: white;
+    font-size: 20px;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 200;
+    margin-top: -1em;
+}
+
+.btn{
+	position: relative;
+    justify-content: center;
+    display: flex;
+}
+
+.btn button{
+	border-radius: 10px;
+    width: 9em;
+    height: 3em;
+    margin-left: 2em;
+    font-size: medium;
+    background-image: linear-gradient(87deg,#5ddaff,#3672e3);
+    text-decoration: none;
+    color: white;
+    border: none;
+}
+
+.singin{
+	position: absolute;
+    display: none;
+    float: right;
+    width: 43%;
+    justify-content: right;
+    margin-left: 44em;
+}
+
+.singin form{
+    width: 22em;
+    height: 28em;
+    border-radius: 31px;
+    margin-left: 8em;
+    margin-top: -2em;
+    background-color: white;
+}
+
+.singin img{
+    width: 6em;
+    height: 5em;
+    margin-top: 1em;
+    margin-left: 8em;
+}
+
+.singin h1{
+	text-align: center;
+    font-family: sans-serif;
+    color: #3672e3c7;
+}
+
+.singin input{
+	border-style: solid;
+    display: flex;
+    width: 20em;
+    /* justify-content: center; */
+    height: 3em;
+    margin-top: 2em;
+    margin-left: 3em;
+    border-radius: 30px;
+    border-color: grey;
+    text-decoration: none;
+}
+
+.singin button{
+	border-radius: 10px;
+    width: 7em;
+    height: 3em;
+    margin-top: 2em;
+    margin-left: 115px;
+    font-size: medium;
+    background-image: linear-gradient(87deg,#5ddaff,#3672e3);
+    text-decoration: none;
+    color: white;
+    border: none;
+}
+
+.end{
+	display: inline-flex;
+	margin-top: -5%;
+}
+
+.end img{
+	width: 4em;
+    height: 4em;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+.end h4{
+	text-align: center;
+    font-family: sans-serif;
+    margin-top: 7vh;
+    font-size: 12px;
+    color: black;
+
+}
+
+.end b{
+	color: #3672e3c7;
+}
