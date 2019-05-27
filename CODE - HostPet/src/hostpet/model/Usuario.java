@@ -16,6 +16,7 @@ public class Usuario {
 	private String telefone;
 	private String cpf;
 	private Date nascimento;
+	private String foto;
 	private Perfil tipo;
 		
 	/**
@@ -45,6 +46,16 @@ public class Usuario {
 
 	public Usuario() {
 		// TODO Auto-generated constructor stub
+	}
+
+	
+	
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 
 	public String getLogin() {

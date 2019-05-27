@@ -34,17 +34,19 @@ public class ValidarLogin extends HttpServlet {
 		try {
 			usuario = new LoginDAO();
 			u = new UsuarioDAO();
+			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String pwd = usuario.md5(senha);
+		//String pwd = usuario.md5(senha);
 		List<Usuario> usuarios = u.login();
 		
 		for (Usuario usuario2 : usuarios) {
 			if(usuario2.getLogin().equals(login)) {
 				System.out.println("correto login");
 				if(usuario2.getSenha().equals(senha)) {
+					u.menuLateral(login);
 					page = "entrar.jsp";
 					break;
 				}else {

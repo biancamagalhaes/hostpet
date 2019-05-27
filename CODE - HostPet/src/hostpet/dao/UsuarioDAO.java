@@ -25,6 +25,40 @@ public class UsuarioDAO {
 		System.out.println(listaUsuario.toString());
 	}
 	
+	public Usuario menuLateral(String login){
+		Statement stmt;
+		List<Usuario> usuarios =  new ArrayList<>();
+		Usuario usuario =  new Usuario();
+		
+		try {
+			
+			stmt = conexao.getConnection().createStatement();
+			ResultSet rs = stmt.executeQuery("select nome, foto, login from usuario");
+			
+			while(rs.next()) {
+				
+				Usuario u = new Usuario();
+				u.setNome(rs.getString("nome"));
+				u.setFoto(rs.getString("foto"));
+				u.setLogin(rs.getString("login"));
+				usuarios.add(u);
+			}
+			stmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		for (Usuario usuario2 : usuarios) {
+			if(usuario2.getLogin().equals(login)) {
+				usuario.setNome(usuario2.getNome());
+				usuario.setFoto(usuario2.getFoto());
+			}
+		}
+		
+	
+		return usuario; 
+	}
+	
 	public List<Usuario> login(){
 		Statement stmt;
 		List<Usuario> logins =  new ArrayList<>();
@@ -32,13 +66,14 @@ public class UsuarioDAO {
 		try {
 			
 			stmt = conexao.getConnection().createStatement();
-			ResultSet rs = stmt.executeQuery("select login, senha from usuario");
+			ResultSet rs = stmt.executeQuery("select login, senha , email from usuario");
 			
 			while(rs.next()) {
 				
 				Usuario u = new Usuario();
 				u.setLogin(rs.getString("login"));
 				u.setSenha(rs.getString("senha"));
+				u.setEmail(rs.getString("email"));
 				logins.add(u);
 			}
 			stmt.close();

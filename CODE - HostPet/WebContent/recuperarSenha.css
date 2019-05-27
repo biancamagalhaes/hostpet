@@ -38,7 +38,7 @@ body{
 	text-align: center;
     font-family: sans-serif;
     color: white;
-    font-size: 49px;
+    font-size: 29px;
 }
 
 .singin input{
@@ -72,37 +72,3 @@ body{
     border: none;
 }
 
-.alerta{
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    vertical-align: middle;
-    z-index: 2;
-    color: red;
-    font-family: sans-serif;
-    background-color: white;
-    width: 16em;
-    border-radius: 10px;
-    border: solid 2px;
-    height: 2em;
-}
-
-.alerta h3{
-	text-align: center;
-    vertical-align: middle;
-    margin-top: 0.7em;
-    font-size: 13px;
-}
-
-a{
-	color: white;
-    text-align: center;
-    font-size: 15px;
-    margin-top: 1em;
-    margin-bottom: -1em;
-    font-weight: bolder;
-    font-family: sans-serif;
-    display: block;
-    cursor: pointer;
-
-}

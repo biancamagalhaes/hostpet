@@ -4,19 +4,16 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes">
-<link rel="stylesheet" type="text/css" href="login.css">
+<link rel="stylesheet" type="text/css" href="recuperarSenha.css">
 <link rel="icon" type="imagem/png" href="assets/logo.png" />
 <title>HostPet</title>
 </head>
 <body>
 	<div id="singin" class="singin">
-   		<form action="ValidarLogin" method="post" type="submit">
-   			<h1>HostPet</h1>
+   		<form action="recuperarSenha" method="post">
+   			<h1>Insira seu login e o link para redefinição da senha será enviado para o seu email!!</h1>
 			<input placeholder="Login" name="login" type="text"/>
-			<input placeholder="Senha" name="senha" type="password"/>
-			<a href="recuperarSenha.jsp">Esqueceu sua senha?</a>
-			<button type="submit">Entrar</button>
+			<button type="submit">Enviar</button>
 		</form>
    </div>
    <!--  <div class="alerta">
