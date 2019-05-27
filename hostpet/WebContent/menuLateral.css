@@ -1,0 +1,39 @@
+body{
+	width: 20em;
+	float: left;
+	display: block;
+}
+.div1{
+	justify-content: center;
+    text-align: center;
+    color: #090753;
+    display: grid;
+    font-family: sans-serif;
+}
+
+h1{
+	max-width: 8em;
+	font-size: 1.5em;
+}
+
+img{
+	margin-left: auto;
+    margin-right: auto;
+	width: 8em;
+}
+
+.div2{
+	margin-top: 5em;
+	justify-content: center;
+    text-align: center;
+    color: #090753;
+    display: grid;
+    font-family: sans-serif;
+}
+
+a{
+	font-size: 20px;
+	margin-bottom: 1em;
+	font-weight: bolder;
+	cursor: pointer;
+}
