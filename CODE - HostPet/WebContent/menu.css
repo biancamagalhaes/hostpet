@@ -1,0 +1,76 @@
+.divsessi{
+	display: inline-flex;
+    width: 12em;
+    margin: 0em;
+}
+
+.texto{
+	color: #090753;
+    font-weight: bolder;
+    font-size: 20px;
+    font-family: sans-serif;
+    margin-top: 23px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.icons{
+	width: 4em;
+	height: 4em;
+}
+
+.sessi{
+	float: right;
+	display: flex;
+	margin-right: 4em;
+}
+
+.logo{
+	width: 7em;
+    height: 5em;
+    margin-left: 3.5em;
+    margin-top: 1em;
+    position: absolute;
+}
+
+.corpo{
+	margin-top: 12%;
+    width: 13.5em;
+	float: left;
+	display: block;
+}
+.div1{
+	justify-content: center;
+    text-align: center;
+    color: #090753;
+    display: grid;
+    font-family: sans-serif;
+}
+
+.div1h1{
+	max-width: 8em;
+	font-size: 1.5em;
+}
+
+.div1img{
+	margin-left: auto;
+    margin-right: auto;
+	width: 8em;
+}
+
+.div2{
+	margin-top: 5em;
+	justify-content: center;
+    text-align: center;
+    color: #090753;
+    display: grid;
+    font-family: sans-serif;
+}
+
+.div2a{
+	font-size: 20px;
+	margin-bottom: 1em;
+	font-weight: bolder;
+	cursor: pointer;
+	text-decoration: none;
+}

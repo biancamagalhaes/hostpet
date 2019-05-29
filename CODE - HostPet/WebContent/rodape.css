@@ -1,0 +1,49 @@
+footer{
+	color: white;
+	height: 13em;
+	width: auto;
+	background-color: #101a3e;
+	font-family: sans-serif;
+}
+
+#bgFooter{
+	    display: grid;
+    grid-template-areas: "a b c d";
+    padding-top: 1.4em;
+}
+
+footer img{
+	width: 22em;
+    height: 12em;
+    margin-top: -2%;
+}
+
+.mediaSociais{
+	display: inline-flex;
+    font-size: 24px;
+    margin-top: 2em;	
+}
+
+.mediaSociais h3{
+	font-size: 24px;
+}
+
+footer h2{
+    font-size: 24px;
+	margin-top: 3em;
+}
+
+.sobre{
+	display: block;
+    text-align: center;
+    width: 10em;
+}
+
+.sobre h3{
+	font-size: 24px;
+}
+
+.sobre h4{
+	font-size: 18px;
+	font-weight: 500;
+}

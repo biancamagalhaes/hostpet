@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div id="singin" class="singin">
-   		<form class="formulario" action="pets" method="post" type="submit">
+   		<form class="formulario" action="usuarios" method="post" type="submit">
    			<h1>HostPet</h1>
    			<div>
    				<div style="display: block">

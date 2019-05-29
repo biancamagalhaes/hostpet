@@ -40,9 +40,9 @@ public class Pets extends HttpServlet {
 		Porte porte = null;
 		
 		if(request.getParameter("sexo") == "feminino") {
-			sexo = sexo.FEMININO;
+			sexo = sexo.FEMEA;
 		}else {
-			sexo = sexo.MASCULINO;
+			sexo = sexo.MACHO;
 		}
 		
 		if(request.getParameter("porte") == "grande") {
