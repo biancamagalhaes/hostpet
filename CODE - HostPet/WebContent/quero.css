@@ -1,0 +1,70 @@
+#texto{
+	font-family: sans-serif;
+    color: #0d52a3;
+    max-width: 22em;
+    text-align: center;
+    padding-top: 4.5em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -3em;
+}
+
+.title{
+	border-bottom: solid 2px grey;
+    display: inline-flex;
+    text-align: center;
+    margin-top: 9em;
+    margin: 9em 26em 0em;
+    /* margin-right: auto; */
+    padding: 0em -0.5em;
+    /* margin-right: auto; */
+    width: 14em;
+}
+
+.title img{
+	width: 5em;
+    height: 5em;
+}
+
+.title h1{
+	font-family: sans-serif;
+	color: darkblue; 
+}
+
+.doador{
+	padding: 1em 17em 0em;
+    display: inline-flex;
+}
+
+.doador h1{
+	font-family: sans-serif;
+	color: darkblue; 
+}
+
+.doador img{
+	width: 10em;
+    height: 10em;
+    margin: 1.5em;
+    border-radius: 73px;
+}
+
+.adocao button{
+	border-radius: 10px;
+    width: 13em;
+    height: 3em;
+    margin-top: 1.4em;
+    display: flex;
+    /* float: right; */
+    padding-left: 0.5em;
+    font-weight: 700;
+    text-align: center;
+    margin-right: auto;
+    margin-left: 33em;
+    font-size: 19px;
+    background-image: linear-gradient(87deg,#5ddaff,#3672e3);
+    border: solid 2px #3672e3;
+    text-decoration: none;
+    color: white;
+    font-family: sans-serif;
+    border: none;
+}

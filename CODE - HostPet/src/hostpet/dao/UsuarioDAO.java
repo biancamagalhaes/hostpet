@@ -67,7 +67,6 @@ public class UsuarioDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("no dao ainda:" + usuario.getNome());
 		return usuario;
 	}
 
@@ -90,7 +89,7 @@ public class UsuarioDAO {
 				o.setNome(rs.getString("nomeong"));
 				o.setEmail(rs.getString("emailong"));
 				o.setCidade(rs.getString("cidadeong"));
-				o.setEstado(rs.getString("estadoong"));
+				o.setEstado(rs.getString("estadong"));
 				o.setCnpj(rs.getString("cnpj"));
 				o.setDescricao(rs.getString("descricao"));
 								
@@ -119,6 +118,45 @@ public class UsuarioDAO {
 		}
 	
 		return usuarios;
+	}
+	
+	public int id(Usuario usuario) {
+		int id = 0;
+		PreparedStatement stmt;
+		try {
+			
+			stmt = conexao.getConnection().prepareStatement("select id_usuario from usuario where login=?;");
+			stmt.setString(1, usuario.getLogin());
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next()) {
+				id = Integer.parseInt(rs.getString("id_usuario"));
+			}
+			stmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return id;
+	}
+	
+	public void inserirOng(Usuario usuario, Ong ong) {
+		Perfil perfil = null;
+		OngDAO dao = new OngDAO();
+		perfil = perfil.ADMIN_ONG;
+		usuario.setTipo(perfil);
+		usuario.setOng(ong);
+		int id = dao.id(ong);
+		PreparedStatement stmt;
+		try {
+			stmt = conexao.getConnection().prepareStatement("update usuario set perfil=?, id_ong=? where login=?;");
+			stmt.setInt(1, usuario.getTipo().getValue());
+			stmt.setInt(2, dao.id(ong));
+			stmt.setString(3, usuario.getLogin());
+			stmt.executeUpdate();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	public void inserir(Usuario usuario) {

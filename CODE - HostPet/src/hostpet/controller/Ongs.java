@@ -1,8 +1,6 @@
 package hostpet.controller;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,11 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import hostpet.dao.OngDAO;
 import hostpet.dao.UsuarioDAO;
+import hostpet.model.Ong;
 import hostpet.model.Usuario;
 
-@WebServlet("/usuarios")
-public class Usuarios extends HttpServlet {
+@WebServlet("/ongs")
+public class Ongs extends HttpServlet {
 
 	/**
 	 * 
@@ -35,24 +35,18 @@ public class Usuarios extends HttpServlet {
 		String email = request.getParameter("email");
 		String cidade = request.getParameter("cidade");
 		String estado = request.getParameter("estado");
-		String cpf = request.getParameter("cpf");
-		String login = request.getParameter("login");
-		String senha = request.getParameter("senha");
-		String telefone = null;
-	
-		//DATE AND TIME
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		java.util.Date date;
+		String cnpj = request.getParameter("cnpj");
+		String descricao = request.getParameter("descricao");
+		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
 		
 		try {
-			date = simpleDateFormat.parse(request.getParameter("data"));
-			java.sql.Date data = new java.sql.Date(date.getTime()); 
-			
-			Usuario usuario = new Usuario(login, senha, email, nome, cidade, estado, telefone, cpf, data);
-			UsuarioDAO dao = new UsuarioDAO();
-			dao.inserir(usuario);
-			request.getRequestDispatcher("adocao.jsp").forward(request, response);
-		} catch (ParseException e) {
+			Ong ong = new Ong(nome, email, cidade, estado, cnpj, descricao);
+			UsuarioDAO Udao = new UsuarioDAO();
+			OngDAO Odao = new OngDAO();
+			Odao.inserir(ong);
+			Udao.inserirOng(usuario, ong);
+			request.getRequestDispatcher("entrar.jsp").forward(request, response);
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			request.getRequestDispatcher("erro.jsp").forward(request, response);

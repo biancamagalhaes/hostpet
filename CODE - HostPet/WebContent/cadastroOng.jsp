@@ -13,7 +13,7 @@
 <body>
 	<c:import url="menu.jsp"></c:import>
 	
-	<form class="formulario" action="usuarios" method="post" type="submit">
+	<form class="formulario" action="ongs" method="post" type="submit">
 		<h1>Cadastro Ong:</h1>
 		<session class="divform">
 		<div style="display: block">
@@ -33,8 +33,8 @@
 			<input placeholder="estado" name="estado" type="text"/>
 		</div>
 		<div style="display: block">
-			<h4>Telefone</h4>
-			<input placeholder="xxx.xxx.xxx-xx" name="telefone" type="text"/>
+			<h4>Cnpj</h4>
+			<input placeholder="xxx.xxx.xxx-xx" name="cnpj" type="text"/>
 		</div>
 		<div style="display: block">
 			<h4>Descrição</h4>

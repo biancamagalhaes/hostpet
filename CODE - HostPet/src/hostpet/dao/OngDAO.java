@@ -1,17 +1,19 @@
 package hostpet.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import hostpet.model.Pet;
+import hostpet.model.Ong;
+import hostpet.model.Usuario;
 import hostpet.util.Conexao;
 
-public class PetDAO {
+public class OngDAO {
 
 	private Conexao conexao;
 
 	
-	public PetDAO() {
+	public OngDAO() {
 		this.conexao = Conexao.getConexao();
 		System.out.println(conexao.toString());
 		//List<Usuario> listaPet = listar();
@@ -77,23 +79,37 @@ public class PetDAO {
 //	
 //		return usuarios;
 //	}
+	
+	public int id(Ong ong) {
+		PreparedStatement stmt;
+		try {
+			
+			stmt = conexao.getConnection().prepareStatement("select id_ong from ong where nome=?;");
+			stmt.setString(1, ong.getNome());
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next()) {
+				ong.setId(Integer.parseInt(rs.getString("id_ong")));
+				int id = ong.getId();
+				System.out.println("id:" + id);
+			}
+			stmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ong.getId();
+	}
 
-	public void inserir(Pet pet) {
-		UsuarioDAO dao = new UsuarioDAO();
+	public void inserir(Ong ong) {
 		try {
 				PreparedStatement ps = conexao.getConnection()
-						.prepareStatement("insert into pet (nome, idade, temperamento, sexo, porte, descricao, " + 
-				"bairro, id_usuariod, tipo) values (?,?,?,?,?,?,?,?,?);");
+						.prepareStatement("insert into ong (nome, email, cidade, estado, cnpj, descricao) values (?,?,?,?,?,?);");
 				
-				ps.setString(1, pet.getNome());
-				ps.setInt(2, pet.getIdade());
-				ps.setString(3, pet.getTemperamento());
-				ps.setString(4, pet.getSexo().toString());
-				ps.setString(5, pet.getPorte().toString());
-				ps.setString(6, pet.getDescricao());
-				ps.setString(7, pet.getBairro());
-				ps.setInt(8, dao.id(pet.getDoador()));
-				ps.setString(9, pet.getTipo().toString());
+				ps.setString(1, ong.getNome());
+				ps.setString(2, ong.getEmail());
+				ps.setString(3, ong.getCidade());
+				ps.setString(4, ong.getEstado());
+				ps.setString(5, ong.getCnpj());
+				ps.setString(6, ong.getDescricao());
 				ps.execute();
 				ps.close();
 			

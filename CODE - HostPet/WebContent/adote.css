@@ -1,0 +1,173 @@
+.formulario session{
+	justify-content: center;
+    align-items: center;
+    width: 980px;
+    border-bottom: solid 1.5px grey;
+    margin-top: 8em;
+    margin-right: auto;
+    margin-left: -99px;
+} 
+
+.formulario{
+	margin-bottom: 3em;
+	text-align: center;
+}
+
+.formulario h1{
+	font-family: sans-serif;
+    color: #0d52a3;
+    padding-top: 5.5em;
+    font-size: 1.4em;
+    margin-right: 5em;
+    margin-bottom: -3em;
+}
+
+.formulario h4{
+	margin-left: 0.7em;
+    margin-top: -0.5em;
+    font-family: sans-serif;
+    color: darkblue;
+}
+
+.formulario button{
+	text-decoration: none;
+    border: none;
+    background-color: transparent;
+    margin-top: -2em;
+    width: 10em;
+}
+
+#search{
+	 width: 3em;
+}
+
+.pmg h5{
+	margin-right: 7.5em;
+    font-family: sans-serif;
+    color: darkblue;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 14em;
+    height: 2px;
+    border-radius: 5px;
+    background: black;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background:darkblue;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: darkblue;
+  cursor: pointer;
+}
+.formulario div{
+	display: block;
+    width: 17em;
+}
+
+.cidade{
+	background-image:url(assets/iconG.png);
+	background-image: url(assets/iconG.png);
+    background-repeat: no-repeat;
+    height: 3em;
+    background-position: 0.5em;
+    border: solid 2px darkblue;
+    border-radius: 11px;
+    width: 17em;
+    padding-left: 2.5em;
+    
+}
+
+#map{
+	height: 37em;
+    width: 31em;
+    margin: 0 1em;
+    margin-right: 0em;
+    margin-top: 0em;
+    padding: 0;
+    float: right;
+}
+
+.two{
+	display: inline-flex;
+    margin-left: 6em;
+    width: 62em;
+}
+
+.feed{
+	 width: 29em;
+}
+
+.pet{
+	border: solid 2px darkblue;
+    display: inline-flex;
+    margin-left: 1em;
+    margin-right: auto;
+    width: 27em;
+    height: 13em;
+    border-radius: 17px;
+    box-shadow: grey 2px;
+    box-shadow: 0px 0px 5px 0px rgba(126, 126, 126, 0.75);
+}
+
+.pet h1{
+	font-size: x-large;
+    color: darkblue;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 1em;
+    font-family: sans-serif;
+}
+
+.pet button{
+	border-radius: 10px;
+    width: 8em;
+    height: 2em;
+    margin-top: 0.4em;
+    display: flex;
+    float: right;
+    padding-left: 2em;
+    font-weight: 700;
+    text-align: center;
+    margin-right: 2.5em;
+    font-size: 19px;
+    background-image: linear-gradient(87deg,#5ddaff,#3672e3);
+    border: solid 2px #3672e3;
+    text-decoration: none;
+    color: white;
+    font-family: sans-serif;
+    border: none;
+}
+
+.pet img{
+	width: 10em;
+    height: 10em;
+    margin: 1.5em;
+    border-radius: 73px;
+}
+
+#patinha{
+	width: 5em;
+    height: 4em;
+    margin: 0em;
+}

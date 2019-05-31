@@ -2,6 +2,7 @@ package hostpet.model;
 
 import hostpet.enums.Porte;
 import hostpet.enums.Sexo;
+import hostpet.enums.Tipo;
 
 public class Pet {
 
@@ -10,13 +11,14 @@ public class Pet {
 	private Integer idade;
 	private String temperamento;
 	private Sexo sexo;
+	private Tipo tipo;
 	private Porte porte;
 	private String descricao;
 	private String bairro;
 	private Usuario doador;
 	private Usuario adotante;
 
-	public Pet(String nome, Integer idade, String temperamento, Sexo sexo, Porte porte, String descricao, String bairro) {
+	public Pet(String nome, Integer idade, String temperamento, Sexo sexo, Porte porte, String descricao, String bairro, Usuario doador, Tipo tipo) {
 		super();
 		this.nome = nome;
 		this.idade = idade;
@@ -25,6 +27,20 @@ public class Pet {
 		this.porte = porte;
 		this.descricao = descricao;
 		this.bairro = bairro;
+		this.doador = doador;
+		this.tipo = tipo;
+	}
+
+	
+	
+	public Tipo getTipo() {
+		return tipo;
+	}
+
+
+
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
 	}
 
 	public String getNome() {

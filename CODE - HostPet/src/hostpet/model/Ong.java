@@ -14,7 +14,7 @@ public class Ong {
 	private List<Usuario> usuario;
 	
 	public Ong(String nome, String email, String cidade, String estado, String cnpj,
-			String descricao, int id) {
+			String descricao) {
 		super();
 		this.nome = nome;
 		this.email = email;
@@ -22,7 +22,7 @@ public class Ong {
 		this.estado = estado;
 		this.cnpj = cnpj;
 		this.descricao = descricao;
-		this.id = id;
+		
 	}
 	
 	public Ong() {

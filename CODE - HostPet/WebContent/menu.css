@@ -38,6 +38,7 @@
     width: 13.5em;
 	float: left;
 	display: block;
+	border-right: solid 1.5px darkgrey;
 }
 .div1{
 	justify-content: center;

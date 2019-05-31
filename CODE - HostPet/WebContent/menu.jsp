@@ -11,11 +11,11 @@
 </head>
 <body>
 <header>
-	<img class="logo" src="assets/logoAzul.png"/>
+	<a  href="adote.jsp"> <img class="logo" src="assets/logoAzul.png"/></a>
 	<session class="sessi">
 		<div style="width: 10em;" class="divsessi">
 		<img alt="" src="assets/iconA.png" class="icons"/>
-		<h1 class="texto" >Adote</h1>
+		<a class="texto" href="adote.jsp">Adote</a>
 		</div>
 		<div class="divsessi">
 		<img alt="" src="assets/iconB.png" class="icons"/>
@@ -23,7 +23,7 @@
 		</div>
 		<div class="divsessi">
 		<img alt="" src="assets/iconC.png" class="icons"/>
-		<h1 class="texto">Meus pets</h1>
+		<a class="texto" href="meusPet.jsp">Meus pets</a>
 		</div>
 		<div class="divsessi">
 		<img alt="" src="assets/iconD.png" class="icons"/>
@@ -39,8 +39,8 @@
 	<div class="div2">
 	<a class="div2a" href="editarPerfil.jsp">Editar Perfil</a>
 	<a class="div2a" href="cadastroOng.jsp">Cadastrar Ong</a>
-	<a class="div2a">Doe R$</a>
-	<a class="div2a">Inserir Feedback</a>
+	<a class="div2a" href="doePagSeguro.jsp">Doe R$</a>
+	<a class="div2a" href="feedback.jsp">Inserir Feedback</a>
 	</div>
 </div>
 </body>
