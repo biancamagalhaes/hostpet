@@ -1,5 +1,8 @@
 package hostpet.dao;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +21,8 @@ public class UsuarioDAO {
 	private Conexao conexao;
 
 	
+	//
+	
 	public UsuarioDAO() {
 		this.conexao = Conexao.getConexao();
 		System.out.println(conexao.toString());
@@ -25,34 +30,49 @@ public class UsuarioDAO {
 		System.out.println(listaUsuario.toString());
 	}
 	
-	public List<Usuario> login(){
-		Statement stmt;
-		List<Usuario> logins =  new ArrayList<>();
-		
+	 public String md5(String text) {
+		  MessageDigest m = null;
+		  try {
+		   m = MessageDigest.getInstance("MD5");
+		   m.update(text.getBytes(),0,text.length());
+		  } catch (NoSuchAlgorithmException e) {
+		   e.printStackTrace();
+		  }catch (NullPointerException e){
+			e.printStackTrace();
+		  }
+		  return ""+new BigInteger(1,m.digest()).toString(16);
+	 }
+	
+	public Usuario login(String login, String senha) {
+		System.out.println("cheguei no dao");
+		PreparedStatement stmt;
+	    Usuario usuario  = null;
+	    String senhaCript = md5(senha);
+		System.out.println(senhaCript);
 		try {
 			
-			stmt = conexao.getConnection().createStatement();
-			ResultSet rs = stmt.executeQuery("select login, senha from usuario");
-			
-			while(rs.next()) {
-				
-				Usuario u = new Usuario();
-				u.setLogin(rs.getString("login"));
-				u.setSenha(rs.getString("senha"));
-				logins.add(u);
+			stmt = conexao.getConnection().prepareStatement("select login,nome,email,cidade,estado,foto from usuario where login=? and senha=?;");
+			stmt.setString(1, login);
+			stmt.setString(2, senhaCript);
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next()) {
+				usuario = new Usuario();
+				usuario.setNome(rs.getString("nome"));
+				usuario.setLogin(rs.getString("login"));
+				usuario.setEmail(rs.getString("email"));
+				usuario.setCidade(rs.getString("cidade"));
+				usuario.setEstado(rs.getString("estado"));
 			}
 			stmt.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-	
-		return logins;
+		return usuario;
 	}
 
 	public List<Usuario> listar() {
 		Statement stmt;
-		List<Usuario> usuarios = new ArrayList<>();
+		List<Usuario> usuarios = new ArrayList<Usuario>();
 		
 		try {
 			
@@ -69,7 +89,7 @@ public class UsuarioDAO {
 				o.setNome(rs.getString("nomeong"));
 				o.setEmail(rs.getString("emailong"));
 				o.setCidade(rs.getString("cidadeong"));
-				o.setEstado(rs.getString("estadoong"));
+				o.setEstado(rs.getString("estadong"));
 				o.setCnpj(rs.getString("cnpj"));
 				o.setDescricao(rs.getString("descricao"));
 								
@@ -99,6 +119,45 @@ public class UsuarioDAO {
 	
 		return usuarios;
 	}
+	
+	public int id(Usuario usuario) {
+		int id = 0;
+		PreparedStatement stmt;
+		try {
+			
+			stmt = conexao.getConnection().prepareStatement("select id_usuario from usuario where login=?;");
+			stmt.setString(1, usuario.getLogin());
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next()) {
+				id = Integer.parseInt(rs.getString("id_usuario"));
+			}
+			stmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return id;
+	}
+	
+	public void inserirOng(Usuario usuario, Ong ong) {
+		Perfil perfil = null;
+		OngDAO dao = new OngDAO();
+		perfil = perfil.ADMIN_ONG;
+		usuario.setTipo(perfil);
+		usuario.setOng(ong);
+		int id = dao.id(ong);
+		PreparedStatement stmt;
+		try {
+			stmt = conexao.getConnection().prepareStatement("update usuario set perfil=?, id_ong=? where login=?;");
+			stmt.setInt(1, usuario.getTipo().getValue());
+			stmt.setInt(2, dao.id(ong));
+			stmt.setString(3, usuario.getLogin());
+			stmt.executeUpdate();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 
 	public void inserir(Usuario usuario) {
 		if(usuario.getOng() == null) {
@@ -114,7 +173,7 @@ public class UsuarioDAO {
 				ps.setString(3, usuario.getCidade());
 				ps.setString(4, usuario.getEstado());
 				ps.setString(5, usuario.getLogin());
-				ps.setString(6, usuario.getSenha());
+				ps.setString(6, md5(usuario.getSenha()));
 				ps.setString(7, usuario.getTelefone());
 				ps.setString(8, usuario.getCpf());
 				ps.setDate(9, (Date) usuario.getNascimento());
@@ -158,5 +217,7 @@ public class UsuarioDAO {
 	public void close() {
 		conexao.closeConnection();
 	}
+
+
 	
 }

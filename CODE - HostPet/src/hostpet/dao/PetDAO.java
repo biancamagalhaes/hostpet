@@ -79,10 +79,11 @@ public class PetDAO {
 //	}
 
 	public void inserir(Pet pet) {
+		UsuarioDAO dao = new UsuarioDAO();
 		try {
 				PreparedStatement ps = conexao.getConnection()
-						.prepareStatement("insert into usuario (nome, idade, temperamento, sexo, porte, descricao, " + 
-				"bairro) values (?,?,?,?,?,?,?);");
+						.prepareStatement("insert into pet (nome, idade, temperamento, sexo, porte, descricao, " + 
+				"bairro, id_usuariod, tipo) values (?,?,?,?,?,?,?,?,?);");
 				
 				ps.setString(1, pet.getNome());
 				ps.setInt(2, pet.getIdade());
@@ -91,6 +92,8 @@ public class PetDAO {
 				ps.setString(5, pet.getPorte().toString());
 				ps.setString(6, pet.getDescricao());
 				ps.setString(7, pet.getBairro());
+				ps.setInt(8, dao.id(pet.getDoador()));
+				ps.setString(9, pet.getTipo().toString());
 				ps.execute();
 				ps.close();
 			

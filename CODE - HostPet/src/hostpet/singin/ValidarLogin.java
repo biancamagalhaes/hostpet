@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import hostpet.dao.LoginDAO;
 import hostpet.dao.UsuarioDAO;
 import hostpet.model.Usuario;
 
@@ -29,31 +28,20 @@ public class ValidarLogin extends HttpServlet {
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		String page = "";
-		LoginDAO usuario = null;
-		UsuarioDAO u = null;
-		try {
-			usuario = new LoginDAO();
-			u = new UsuarioDAO();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		String pwd = usuario.md5(senha);
-		List<Usuario> usuarios = u.login();
+		UsuarioDAO dao = new UsuarioDAO();
+		System.out.println("fui pro dao");
+		Usuario usuario = dao.login(login,senha);
 		
-		for (Usuario usuario2 : usuarios) {
-			if(usuario2.getLogin().equals(login)) {
-				System.out.println("correto login");
-				if(usuario2.getSenha().equals(senha)) {
-					page = "entrar.jsp";
-					break;
-				}else {
-					page = "erro.jsp";
-				}
-			}else {
-				page = "erro.jsp";
-			}
+		if(usuario!=null){
+			//ok
+			request.getSession(true).setAttribute("usuario", usuario);
+			System.out.println("session: " + usuario.getEmail());
+			page = "editarPerfil.jsp";
+		}else{
+			//erro
+			page = "erro.jsp";
 		}
+
 		
 		response.sendRedirect(page);
 		

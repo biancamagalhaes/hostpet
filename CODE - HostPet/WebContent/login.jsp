@@ -15,6 +15,7 @@
    			<h1>HostPet</h1>
 			<input placeholder="Login" name="login" type="text"/>
 			<input placeholder="Senha" name="senha" type="password"/>
+			<a href="recuperarSenha.jsp">Esqueceu sua senha?</a>
 			<button type="submit">Entrar</button>
 		</form>
    </div>

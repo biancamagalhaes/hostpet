@@ -1,0 +1,74 @@
+body{
+    margin: 0px;
+   /* width: max-content;*/
+    align-items: right;
+    overflow-x: hidden;
+}
+
+.singin{
+	display: inline-block;
+    width: -webkit-fill-available;
+    height: 63em;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-repeat: no-repeat;
+    padding-left: auto;
+    background-size: cover;
+    background-image: url(assets/cachorro.jpg);
+    z-index: 1;
+    opacity: 1.5;
+}
+
+.singin form{
+    justify-content: center;
+    align-items: center;
+    /* display: flex; */
+    width: 34em;
+    text-align: center;
+    align-content: center;
+    height: 28em;
+    border-radius: 31px;
+    margin-left: auto;
+    margin-top: 12em;
+    margin-right: auto;
+}
+
+.singin h1{
+	text-align: center;
+    font-family: sans-serif;
+    color: white;
+    font-size: 29px;
+}
+
+.singin input{
+    display: flex;
+    width: 36em;
+    margin-left: auto;
+    margin-right: auto;
+    height: 2em;
+    padding: 1em;
+    margin-top: 2em;
+    border-radius: 16px;
+    border: solid 3px;
+    border-color: darkblue;
+    text-decoration: none;
+}
+
+.singin button{
+	border-radius: 10px;
+    width: 18em;
+    height: 3em;
+    margin-top: 2em;
+    margin-left: auto;
+    font-weight: 700;
+    margin-right: auto;
+    font-size: 19px;
+    background-image: linear-gradient(87deg,#5ddaff,#3672e3);
+    border: solid 2px #3672e3;
+    text-decoration: none;
+    color: white;
+    font-family: sans-serif;
+    border: none;
+}
+

@@ -1,0 +1,34 @@
+.doacao{
+	margin-bottom: 25em;
+}
+
+.doacao div{
+	justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-template-areas: "a b";
+    margin-top: 8em;
+    margin-bottom: 11em;
+    margin-right: 29em;
+    margin-left: 0em;
+}
+
+.doacao h1{
+	font-family: sans-serif;
+    color: #0d52a3;
+    max-width: 22em;
+    text-align: center;
+    padding-top: 8.5em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -3em;
+}
+
+.pag{
+	margin-top: 14%;
+    margin-left: 51%;
+    margin-right: auto;
+    height: 4em;
+    width: 14em;
+
+}

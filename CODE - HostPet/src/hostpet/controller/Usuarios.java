@@ -51,7 +51,7 @@ public class Usuarios extends HttpServlet {
 			Usuario usuario = new Usuario(login, senha, email, nome, cidade, estado, telefone, cpf, data);
 			UsuarioDAO dao = new UsuarioDAO();
 			dao.inserir(usuario);
-			request.getRequestDispatcher("entrar.jsp").forward(request, response);
+			request.getRequestDispatcher("adocao.jsp").forward(request, response);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
