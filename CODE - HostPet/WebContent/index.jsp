@@ -25,7 +25,7 @@
 		<video id="video" playsinline autoplay muted loop preload="auto">
 			<source src="assets/video.mp4" type="video/mp4">
     	</video>
-    	<h2>O sistema estará disponivel apartir do dia 5/6/2019</h2>
+    	<h2>O sistema estará disponivel a partir do dia 5/6/2019</h2>
 	    <div class="contentHome">
 	        <div class="btn">
 	            <a href="login.jsp"><button id="btn" type="button" >Entrar</button></a>
@@ -73,7 +73,7 @@
 			<h1 style="padding: 0em 2em;">1- Depois de logar, é só escolher o pet no feed</h1>
 			<h1 style="padding: 0em 2em;">2- Clicar nele e em quero adotar</h1>
 			<h1 style="color: #bc0973">E as informações dele serão enviadas para o seu email cadastrado</h1>
-			<img src="assets/10-motivos-para-adotar-um-cachorro-vira-lata-300x203.jpeg"/>
+			<img src="assets/10-motivos-para-adotar-um-cachorro-vira-lata-300x203.png"/>
 		</div>
 	</session>
 	<footer>

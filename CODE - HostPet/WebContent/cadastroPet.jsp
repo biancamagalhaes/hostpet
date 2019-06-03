@@ -21,7 +21,6 @@
 			<select name="tipo">
 				<option value="gato">Gato</option>
 				<option value="cachorro">Cachorro</option>
-				<option value="grande">Grande</option>
 			</select>
 		</div>
 		<div style="display: block">
@@ -57,7 +56,7 @@
 		</div>
 		<div style="display: block">
 			<h4 style="margin-left: 0.65em;">Foto</h4>
-			<input type="file" name=foto" id="foto" accept="image/jpg,image/jpeg,image/png,image/gif,image/bmp,image/tiff"/>
+			<input type="file" name="file" id="foto" accept="image/jpg,image/jpeg,image/png"/>
 			<!-- <img src="assets/iconFoto.png"/>  -->
 		</div>
 		</session>

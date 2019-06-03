@@ -29,12 +29,36 @@
     color: darkblue;
 }
 
-.formulario button{
+#btn{
 	text-decoration: none;
     border: none;
     background-color: transparent;
     margin-top: -2em;
     width: 10em;
+}
+
+.cachorro{
+	background-image: url(assets/iconE.png);
+    height: 8em;
+    background-repeat: no-repeat;
+    margin-left: 1em;
+    width: 7em;
+    background-color: transparent;
+    border: none;
+}
+
+.gato{
+	background-image: url(assets/iconF.png);
+    height: 8em;
+    background-repeat: no-repeat;
+    margin-left: 1em;
+    width: 7em;
+    background-color: transparent;
+    border: none;
+}
+
+#btn{
+	width: 4em;
 }
 
 #search{
@@ -120,7 +144,8 @@
 
 .pet{
 	border: solid 2px darkblue;
-    display: inline-flex;
+    display: block;
+    margin-bottom: 2em;
     margin-left: 1em;
     margin-right: auto;
     width: 27em;

@@ -16,13 +16,13 @@
 		<h1 id="texto">Agora é só entrar em contato para adotar seu amiguinho!!!</h1>
 		<div class="title" style="display: inline-flex; text-align: center;">
 			<img src="assets/cat.png"/>
-			<h1>Ricardo</h1>
+			<h1>${pet.nome}</h1>
 		</div>
 		<div class="doador">
-			<img src=""/>
-			<h1>${pet.adotante}</h1>
+			<img src="${pet.doador.foto}"/>
+			<h1>${pet.doador.nome}</h1>
 		</div>
-		<button>Receber contato para adoção do pet</button>
+		<a href="queroResp.jsp"><button>Receber contato para adoção do pet</button></a>
 	</session>
 
 </body>

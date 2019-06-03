@@ -103,7 +103,9 @@
 
 #texto{
 	display: grid;
-	grid-template-areas: "a b";
+    grid-template-areas: "a b";
+    margin-left: auto;
+    margin-right: auto;
 }
 .description{
 	width: 38em;
@@ -129,16 +131,31 @@
 .title h1{
 	font-family: sans-serif;
 	color: darkblue; 
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.info{
+	display: block;
+    text-align: center;
+    width: 22em;
+    margin-left: 12em;
+    margin-top: 1em;
+    margin-right: auto;
 }
 
 .info h2{
-	font-family: sans-serief;
-	color: darkblue; 
+	font-family: sans-serif;
+    color: darkblue;
+    font-size: 1.55em; 
 }
 
 .info p{
-	font-family: sans-serief;
-	color: darkblue; 
+	font-family: sans-serif;
+    color: darkblue;
+    font-weight: bolder;
+    text-align: center;
+    margin-left: 1em;
 }
 
 .description button{

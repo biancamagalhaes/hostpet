@@ -33,7 +33,7 @@
 </header>
 <div class="corpo">
 	<div class="div1">
-		<image src="assets/avatar.png" class="div1img"/>
+		<image src="${usuario.foto}" class="div1img"/>
 		<h1 class="div1h1">${usuario.nome}</h1>
 	</div>
 	<div class="div2">

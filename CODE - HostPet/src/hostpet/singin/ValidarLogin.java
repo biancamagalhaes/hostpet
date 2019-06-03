@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import hostpet.dao.PetDAO;
 import hostpet.dao.UsuarioDAO;
 import hostpet.model.Usuario;
 
@@ -29,14 +30,14 @@ public class ValidarLogin extends HttpServlet {
 		String senha = request.getParameter("senha");
 		String page = "";
 		UsuarioDAO dao = new UsuarioDAO();
-		System.out.println("fui pro dao");
 		Usuario usuario = dao.login(login,senha);
 		
 		if(usuario!=null){
 			//ok
 			request.getSession(true).setAttribute("usuario", usuario);
-			System.out.println("session: " + usuario.getEmail());
-			page = "editarPerfil.jsp";
+			PetDAO Pdao = new PetDAO();
+			request.setAttribute("Petlista", Pdao.listarAdote());
+			page = "adote.jsp";
 		}else{
 			//erro
 			page = "erro.jsp";

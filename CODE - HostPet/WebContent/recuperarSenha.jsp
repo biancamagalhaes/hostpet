@@ -11,8 +11,8 @@
 <body>
 	<div id="singin" class="singin">
    		<form action="recuperarSenha" method="post">
-   			<h1>Insira seu login e o link para redefinição da senha será enviado para o seu email!!</h1>
-			<input placeholder="Login" name="login" type="text"/>
+   			<h1>Uma nova senha será enviada para o seu email, você pode efetuar login com ela e posteriormente altera-la no editar perfil!!</h1>
+			<input placeholder="Digite aqui o seu email cadastrado" name="email" type="text"/>
 			<button type="submit">Enviar</button>
 		</form>
    </div>
