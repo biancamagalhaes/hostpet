@@ -1,6 +1,13 @@
+<%@page import="hostpet.dao.PetDAO"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<% PetDAO dao = new PetDAO();
+if(request.getAttribute("Petlista") == null){
+	request.setAttribute("Petlista", dao.listarAdote());	
+}
+ %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,22 +19,22 @@
 </head>
 <body>
 	<c:import url="menu.jsp"></c:import>	
-		<form class="formulario">
+		<form class="formulario" action="filtro" method="post">
 			<h1>Encontre um amigo e deixe sua vida mais alegre!!</h1>
 			<session style="display: inline-flex;">
 				<div style="display: inline-flex; width: 12em; margin-right: 5em;">
 					<div style="display: block;">
-						<img src="assets/iconE.png"/>
+						<input type="text" class="cachorro" id="dog" onclick="cachorros()" value="0" name="cachorro"></input>
 						<h4>Cachorro</h4>
 					</div>
 					<div style="display: block;">
-						<img src="assets/iconF.png"/>
+						<input type="text" class="gato" id="cat" onclick="gatos()" value="0" name="gato"></input>
 						<h4  style="margin-left: 1.5em;">Gato</h4>
 					</div>
 				</div>
 				<div style="display: block; width: 26em; margin-right: 5em;">
 					<h4>Porte:</h4>
-					<input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+					<input type="range" min="1" max="100" value="50" class="slider" id="myRange" name="porte">
 					<div class="pmg" style="display: inline-flex; width: 14em;">
 						<h5>P</h5>
 						<h5>M</h5>
@@ -36,24 +43,28 @@
 				</div>
 				<div style="display: block; margin-top: -4em;">
 					<h4>Cidade:</h4>
-					<input type="search" class="cidade" >
+					<input type="search" class="cidade" name="cidade" >
 				</div>
-				<button type="submit"><img id="search" src="assets/iconH.png"/></button>
+				<button type="submit" id="btn"><img id="search" src="assets/iconH.png"/></button>
 			</session>			
 		</form>
 		
 		<session class="two" style="display: inline-flex;">
 			<div class="feed">
+			<c:forEach var="e" items="${Petlista}">
+			<form  action="SobrePet" method="post" type="submit">
 				<div class="pet">
-					<img src="assets/cat.jpg"/>
-					<div>
-						<div style="display: inline-flex; margin-top: 3em;">
+					<img src="perfil/${e.foto}"/>
+					<div style="display: grid; align-items: center; float: right;">
+						<div style="display: inline-flex; margin-top: 3em; margin-left: -1.5em;">
 							<img id="patinha" src="assets/patinha.png"/>
-							<h1><!-- ${pet.nome} --> Ricardo</h1>
+							<h1>${e.nome}</h1>
 						</div>
-						<button>Ver mais</button>
+						<button value="${e.id}" name="button" type="submit">Ver mais</button>
 					</div>
 				</div>
+			</form>
+			</c:forEach>
 			</div>
 			<div id="map"></div>
 		    <script>
@@ -68,6 +79,31 @@
 		    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYLLinb7c0xgQg0jC9sPDAoBQ73J4kvo0&callback=initMap"
 		    async defer></script>
 		</session>
-		
+		<script>
+			function cachorros(){
+				if(document.getElementById("dog").value == "1"){
+					document.getElementById("dog").style.backgroundImage = "url('assets/iconE.png')";
+					document.getElementById("dog").value = "0";
+				}else{
+					document.getElementById("dog").style.backgroundImage = "url('assets/iconEcolor.png')";
+					document.getElementById("dog").value = "1";
+					document.getElementById("cat").style.backgroundImage = "url('assets/iconF.png')";
+					document.getElementById("cat").value = "0";
+				}
+				
+			}
+			function gatos(){
+				if(document.getElementById("cat").value == "1"){
+					document.getElementById("cat").style.backgroundImage = "url('assets/iconF.png')";
+					document.getElementById("cat").value = "0";
+				}else{
+					document.getElementById("cat").style.backgroundImage = "url('assets/iconFcolor.png')";
+					document.getElementById("cat").value = "1";
+					document.getElementById("dog").style.backgroundImage = "url('assets/iconE.png')";
+					document.getElementById("dog").value = "0";
+				}
+				
+			}
+		</script>
 </body>
 </html>

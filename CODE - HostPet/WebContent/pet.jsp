@@ -16,7 +16,7 @@
 		<div class="carroussel">
 			<div class="slideshow-container">
 			<div class="mySlides fade">
-			  <img src="assets/cat.jpg" >
+			  <img src="perfil/${pet.foto}" >
 			</div>
 			
 			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -33,20 +33,20 @@
 		</div>
 		<div class="description">
 			<div class="title" style="display: inline-flex; text-align: center;">
-				<img src="assets/cat.png"/>
-				<h1>Ricardo</h1>
+				<!--  <img src="assets/cat.png"/>-->
+				<h1 style="text-align: center;">${pet.nome}</h1>
 			</div>
-			<div class="info" style="display: inline-flex; text-align: center;">
+			<div class="info">
 				<div id="texto">
-					<h2>${pet.idade}</h2>
+					<h2>${pet.idade} anos</h2>
 					<h2>${pet.sexo}</h2>
 					<h2>${pet.porte}</h2>
 					<h2>${pet.temperamento}</h2>
 				</div>
-				<h2>${pet.bairro}, ${pet.adotante.cidade}, ${pet.adotante.estado}</h2>
+				<h2>${pet.bairro}, ${pet.doador.cidade}-${pet.doador.estado}</h2>
 				<p>${pet.descricao}</p>
 			</div>
-			<button type="button">Quero adotar</button>
+			<a href="quero.jsp"><button type="button">Quero adotar</button></a>
 		</div>
 	</session>
 	<script>

@@ -42,6 +42,45 @@ public class UsuarioDAO {
 		  }
 		  return ""+new BigInteger(1,m.digest()).toString(16);
 	 }
+	 
+	public List<Usuario> usuarios() {
+		Statement stmt;
+		List<Usuario> usuarios = new ArrayList<Usuario>();
+		
+		try {
+			
+			stmt = conexao.getConnection().createStatement();
+			ResultSet rs = stmt.executeQuery("select email from usuario");
+			while(rs.next()) {
+							
+				Usuario u = new Usuario();
+				u.setEmail(rs.getString("email"));
+
+				usuarios.add(u);
+			}
+			
+			stmt.close();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	
+		return usuarios;
+	}
+	 
+	public void senha(Usuario usuario) {
+		PreparedStatement stmt;
+		try {
+			
+			stmt = conexao.getConnection().prepareStatement("update usuario set senha=? where email=?;");
+			stmt.setString(1, md5(usuario.getSenha()));
+			stmt.setString(2, usuario.getEmail());
+			stmt.executeUpdate();
+			stmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public Usuario login(String login, String senha) {
 		System.out.println("cheguei no dao");
@@ -62,6 +101,7 @@ public class UsuarioDAO {
 				usuario.setEmail(rs.getString("email"));
 				usuario.setCidade(rs.getString("cidade"));
 				usuario.setEstado(rs.getString("estado"));
+				usuario.setFoto(rs.getString("foto"));
 			}
 			stmt.close();
 		} catch (Exception e) {
@@ -166,7 +206,7 @@ public class UsuarioDAO {
 				
 				PreparedStatement ps = conexao.getConnection()
 						.prepareStatement("insert into usuario (nome, email, cidade, estado, login, senha, " + 
-				"telefone, cpf, datanascimento) values (?,?,?,?,?,?,?,?,?);");
+				"telefone, cpf, datanascimento, foto) values (?,?,?,?,?,?,?,?,?);");
 				
 				ps.setString(1, usuario.getNome());
 				ps.setString(2, usuario.getEmail());
@@ -177,6 +217,7 @@ public class UsuarioDAO {
 				ps.setString(7, usuario.getTelefone());
 				ps.setString(8, usuario.getCpf());
 				ps.setDate(9, (Date) usuario.getNascimento());
+				ps.setString(10, usuario.getFoto());
 				ps.execute();
 				ps.close();
 			

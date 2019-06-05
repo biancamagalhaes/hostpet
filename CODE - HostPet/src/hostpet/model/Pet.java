@@ -17,8 +17,9 @@ public class Pet {
 	private String bairro;
 	private Usuario doador;
 	private Usuario adotante;
+	private String foto;
 
-	public Pet(String nome, Integer idade, String temperamento, Sexo sexo, Porte porte, String descricao, String bairro, Usuario doador, Tipo tipo) {
+	public Pet(String nome, Integer idade, String temperamento, Sexo sexo, Porte porte, String descricao, String bairro, Usuario doador, Tipo tipo, String foto) {
 		super();
 		this.nome = nome;
 		this.idade = idade;
@@ -29,9 +30,12 @@ public class Pet {
 		this.bairro = bairro;
 		this.doador = doador;
 		this.tipo = tipo;
+		this.foto = foto;
 	}
 
-	
+	public Pet() {
+		
+	}
 	
 	public Tipo getTipo() {
 		return tipo;
@@ -121,6 +125,18 @@ public class Pet {
 
 	public void setAdotante(Usuario adotante) {
 		this.adotante = adotante;
+	}
+
+
+
+	public String getFoto() {
+		return foto;
+	}
+
+
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 
 }

@@ -22,18 +22,31 @@
 		<a class="texto" href="cadastroPet.jsp">Cadastre um pet</a>
 		</div>
 		<div class="divsessi">
-		<img alt="" src="assets/iconC.png" class="icons"/>
+		<!--  <img alt="" src="assets/iconC.png" class="icons"/>
 		<a class="texto" href="meusPet.jsp">Meus pets</a>
+		</div>-->
+		<!--  <div class="divsessi">
+		
+		<a class="texto" id="button">Em andamento</a>
+		<div  class="dropdown-content">
+			 <a href="#">Adoção</a>
+             <a href="#">Doação</a>
 		</div>
-		<div class="divsessi">
-		<img alt="" src="assets/iconD.png" class="icons"/>
-		<h1 class="texto">Em andamento</h1>
+		</div>-->
+		<div class="dropdown">
+		  <img alt="" src="assets/iconD.png" class="icons"/> 
+		  <button class="dropbtn">Em andamento</button>
+		  <div class="dropdown-content">
+		  <a href="adocao.jsp">Adoção</a>
+		  <a href="doacao.jsp">Doação</a>
+		  </div>
 		</div>
+		
 	</session>
 </header>
 <div class="corpo">
 	<div class="div1">
-		<image src="assets/avatar.png" class="div1img"/>
+		<image src="${usuario.foto}" class="div1img"/>
 		<h1 class="div1h1">${usuario.nome}</h1>
 	</div>
 	<div class="div2">

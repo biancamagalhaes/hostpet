@@ -15,18 +15,20 @@
 	
 		<h1 id="title">Meus Pets:</h1>
 		
-		<div class="feed">
+		<c:forEach var="e" items="${Petadocao}">
+			<form  action="SobrePet" method="post" type="submit">
 				<div class="pet">
-					<img src="assets/cat.jpg"/>
-					<div>
-						<div style="display: inline-flex; margin-top: 3em;">
+					<img src="perfil/${e.foto}"/>
+					<div style="display: grid; align-items: center; float: right;">
+						<div style="display: inline-flex; margin-top: 3em; margin-left: -1.5em;">
 							<img id="patinha" src="assets/patinha.png"/>
-							<h1><!-- ${pet.nome} --> Ricardo</h1>
+							<h1>${e.nome}</h1>
 						</div>
-						<button>Ver mais</button>
+						<button value="${e.id}" name="button" type="submit">Ver mais</button>
 					</div>
 				</div>
-		</div>
+			</form>
+		</c:forEach>>
 
 </body>
 </html>

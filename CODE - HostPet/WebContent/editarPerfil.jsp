@@ -13,7 +13,7 @@
 <body>
 	<c:import url="menu.jsp"></c:import>
 	
-	<form class="formulario" action="usuarios" method="post" type="submit">
+	<form class="formulario" action="usuarios" method="post" type="submit" enctype="multipart/form-data">
 		<h1>Perfil:</h1>
 		<session class="divform">
 		<div style="display: block">
@@ -46,6 +46,7 @@
 		</div>
 		<div style="display: block">
 			<h4 style="margin-left: 0.65em;">Foto</h4>
+			<input type="file" name="file" id="foto" accept="image/jpg,image/jpeg,image/png"/>
 			<img/>
 		</div>
 		</session>

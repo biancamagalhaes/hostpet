@@ -14,7 +14,7 @@
 	<c:import url="menu.jsp"></c:import>
 		<session class="adocao" style="display: block; margin-left: 9em; padding-top: 6em;">
 			<h1 id="texto">O telefone de </h1>
-			<h1 id="texto">${pet.adotante}</h1>
+			<h1 id="texto">${pet.doador.nome}</h1>
 			<h1 id="texto"> foi enviado por SMS e Email pra você!!</h1>
 		</session>
 

@@ -11,11 +11,16 @@
 <body>
 	<div id="singin" class="singin">
    		<form action="recuperarSenha" method="post">
-   			<h1>Insira seu login e o link para redefinição da senha será enviado para o seu email!!</h1>
-			<input placeholder="Login" name="login" type="text"/>
-			<button type="submit">Enviar</button>
+   			<h1>Uma nova senha será enviada para o seu email, você pode efetuar login com ela e posteriormente altera-la no editar perfil!!</h1>
+			<input placeholder="Digite aqui o seu email cadastrado" name="email" type="text"/>
+			<button onclick="alerta()" type="submit" id="btn">Enviar</button>
 		</form>
    </div>
+   <script type="text/javascript">
+   		function alerta(){
+   		 alert("A nova senha foi enviada!");
+   		}	
+   </script>
    <!--  <div class="alerta">
    		<h3>Login não existe, cadastre-se é fácil!</h3>
    </div>

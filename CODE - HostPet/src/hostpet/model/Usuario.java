@@ -27,7 +27,7 @@ public class Usuario {
 	
 
 	public Usuario(String login, String senha, String email, String nome, String cidade, String estado,
-			String telefone, String cpf, Date nascimento
+			String telefone, String cpf, Date nascimento, String foto
 			) {
 		super();
 		this.login = login;

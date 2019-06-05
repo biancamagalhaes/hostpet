@@ -15,7 +15,7 @@ body{
     background-repeat: no-repeat;
     padding-left: auto;
     background-size: cover;
-    background-image: url(assets/cachorro.jpg);
+    background-image: url(assets/cachorro.png);
     z-index: 1;
     opacity: 1.5;
 }

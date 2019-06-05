@@ -15,15 +15,15 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet Filter implementation class Autenticacao
  */
-@WebFilter("/kkk")
+@WebFilter("/*")
 public class Autorizacao implements Filter {
 
-    /**
-     * Default constructor. 
-     */
-    public Autorizacao() {
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * Default constructor.
+	 */
+	public Autorizacao() {
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see Filter#destroy()
@@ -35,22 +35,20 @@ public class Autorizacao implements Filter {
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		HttpServletRequest r = (HttpServletRequest)request;
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		HttpServletRequest r = (HttpServletRequest) request;
 		System.out.println(r.getRequestURI());
 		String uri = r.getRequestURI();
-		if(uri.endsWith("/index.jsp") || uri.endsWith("/ValidarLogin") || uri.endsWith(".css") || uri.endsWith(".png") || uri.endsWith("/.jpg") || uri.endsWith("/.mp4")){
-		//if (uri.matches("(\.(css|png|jpe?g|mp4)|index\.jsp)$")) { //RegExr (testar)
-		chain.doFilter(request, response);
-		} else{
-			Object o = r.getSession().getAttribute("objeto");
-			if(o != null){
-				chain.doFilter(request, response);
-			}else{
-				((HttpServletResponse) response).sendRedirect("index.jsp");
-			}
+		Object o = r.getSession().getAttribute("usuario");
+		if (o != null || uri.endsWith("/index.jsp") || uri.endsWith("/ValidarLogin") || uri.endsWith(".css")
+				|| uri.endsWith(".png") || uri.endsWith("/.jpg") || uri.endsWith("/video.mp4")
+				|| uri.endsWith("/login.jsp") || uri.endsWith("/erro.jsp") || uri.endsWith("/recuperarSenha.jsp") || uri.endsWith("/recuperarSenha") ) {
+			chain.doFilter(request, response);
+		} else {
+			((HttpServletResponse) response).sendRedirect("index.jsp");
+//			}
 		}
-		
 
 		// pass the request along the filter chain
 
