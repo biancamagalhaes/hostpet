@@ -3,7 +3,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <% PetDAO dao = new PetDAO();
-request.setAttribute("Petlista", dao.listarAdote()); %>
+if(request.getAttribute("Petlista") == null){
+	request.setAttribute("Petlista", dao.listarAdote());	
+}
+ %>
     
 <!DOCTYPE html>
 <html>
@@ -21,11 +24,11 @@ request.setAttribute("Petlista", dao.listarAdote()); %>
 			<session style="display: inline-flex;">
 				<div style="display: inline-flex; width: 12em; margin-right: 5em;">
 					<div style="display: block;">
-						<button type="button" class="cachorro" id="dog" onclick="cachorro()" value=0 name="cachorro"></button>
+						<input type="text" class="cachorro" id="dog" onclick="cachorros()" value="0" name="cachorro"></input>
 						<h4>Cachorro</h4>
 					</div>
 					<div style="display: block;">
-						<button type="button" class="gato" id="cat" onclick="gato()" value=0 name="gato"></button>
+						<input type="text" class="gato" id="cat" onclick="gatos()" value="0" name="gato"></input>
 						<h4  style="margin-left: 1.5em;">Gato</h4>
 					</div>
 				</div>
@@ -77,23 +80,27 @@ request.setAttribute("Petlista", dao.listarAdote()); %>
 		    async defer></script>
 		</session>
 		<script>
-			function cachorro(){
-				if(document.getElementById("dog").value == 1){
+			function cachorros(){
+				if(document.getElementById("dog").value == "1"){
 					document.getElementById("dog").style.backgroundImage = "url('assets/iconE.png')";
-					document.getElementById("dog").value = 0;
+					document.getElementById("dog").value = "0";
 				}else{
 					document.getElementById("dog").style.backgroundImage = "url('assets/iconEcolor.png')";
-					document.getElementById("dog").value = 1;
+					document.getElementById("dog").value = "1";
+					document.getElementById("cat").style.backgroundImage = "url('assets/iconF.png')";
+					document.getElementById("cat").value = "0";
 				}
 				
 			}
-			function gato(){
-				if(document.getElementById("cat").value == 1){
+			function gatos(){
+				if(document.getElementById("cat").value == "1"){
 					document.getElementById("cat").style.backgroundImage = "url('assets/iconF.png')";
-					document.getElementById("cat").value = 0;
+					document.getElementById("cat").value = "0";
 				}else{
 					document.getElementById("cat").style.backgroundImage = "url('assets/iconFcolor.png')";
-					document.getElementById("cat").value = 1;
+					document.getElementById("cat").value = "1";
+					document.getElementById("dog").style.backgroundImage = "url('assets/iconE.png')";
+					document.getElementById("dog").value = "0";
 				}
 				
 			}

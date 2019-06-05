@@ -46,17 +46,25 @@ public class RecuperarSenha extends HttpServlet {
 		Date date= new Date();
 		long time = date.getTime();
 		String senha = Long.toString(time);
+		String msg = null;
+		String page = null;
 		
 		Usuario u = new Usuario();
 		u.setSenha(senha);
 		u.setEmail(email);
 		
-		UsuarioDAO dao = new UsuarioDAO();
-		dao.senha(u);
 		RecuperarSenhaDAO s = new RecuperarSenhaDAO();
+		UsuarioDAO dao = new UsuarioDAO();
 		
-		String page = s.email(email, senha);
-		System.out.println("Page" + page);
+		Usuario user = s.verificar(email);
+		
+		if(user == null) {
+			msg = "Desculpa não encontramos esse email no nosso banco de dados, talvez tenha errado!";
+			page = "recuperarSenha.jsp";
+		}else {
+			dao.senha(u);
+			page = s.email(email, senha);
+		}
 		
 		request.getRequestDispatcher(page).forward(request, response);
 	}

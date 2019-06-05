@@ -2,7 +2,7 @@ package hostpet.controller;
 
 
 import java.io.IOException;
-
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -51,10 +51,12 @@ public class Filtro extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int gato = Integer.parseInt(request.getParameter("gato"));
-		int cachorro = Integer.parseInt(request.getParameter("cachorro"));
+		System.out.println("oii");
 		int p = Integer.parseInt(request.getParameter("porte"));
 		String cidade = request.getParameter("cidade");
+		int gato = Integer.parseInt(request.getParameter("gato"));
+		int cachorro = Integer.parseInt(request.getParameter("cachorro"));
+		
 		
 		Porte porte = null;
 		Tipo tipo = null;
@@ -75,16 +77,27 @@ public class Filtro extends HttpServlet {
 		}else {
 			tipo = null;
 		}
-		
+	
 		try {
 			Pet pet = new Pet();
+			System.out.println(porte.toString());
 			pet.setPorte(porte);
+			System.out.println(tipo.toString());
 			pet.setTipo(tipo);
 			Usuario usuario = new Usuario();
+			System.out.println(cidade);
 			usuario.setCidade(cidade);
 			PetDAO dao = new PetDAO();
-			dao.filtro(pet, usuario);
-			request.setAttribute("Petlista", dao.listarAdote());
+			System.out.println("to retornando2");
+			request.removeAttribute("Petlista");
+			List<Pet> pets = dao.filtro(pet, usuario);
+			System.out.println(pets.size());
+			System.out.println(pets.get(0).getNome());
+			System.out.println(pets.get(1).getNome());
+			System.out.println(pets.get(2).getNome());
+			System.out.println(pets.get(3).getNome());
+			request.setAttribute("Petlista", dao.filtro(pet, usuario));
+			System.out.println("to retornando");
 			request.getRequestDispatcher("adote.jsp").forward(request, response);
 		}catch (Exception e) {
 			e.printStackTrace();

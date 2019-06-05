@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet Filter implementation class Autenticacao
  */
-@WebFilter("/kkk")
+@WebFilter("/*")
 public class Autorizacao implements Filter {
 
 	/**
@@ -40,14 +40,10 @@ public class Autorizacao implements Filter {
 		HttpServletRequest r = (HttpServletRequest) request;
 		System.out.println(r.getRequestURI());
 		String uri = r.getRequestURI();
-//		if (uri.endsWith("/index.jsp") || uri.endsWith("/ValidarLogin") || uri.endsWith(".css") || uri.endsWith(".png")
-//				|| uri.endsWith("/.jpg") || uri.endsWith("/.mp4")) {
-//			chain.doFilter(request, response);
-//		} else {
 		Object o = r.getSession().getAttribute("usuario");
 		if (o != null || uri.endsWith("/index.jsp") || uri.endsWith("/ValidarLogin") || uri.endsWith(".css")
 				|| uri.endsWith(".png") || uri.endsWith("/.jpg") || uri.endsWith("/video.mp4")
-				|| uri.endsWith("/login.jsp")) {
+				|| uri.endsWith("/login.jsp") || uri.endsWith("/erro.jsp") || uri.endsWith("/recuperarSenha.jsp") || uri.endsWith("/recuperarSenha") ) {
 			chain.doFilter(request, response);
 		} else {
 			((HttpServletResponse) response).sendRedirect("index.jsp");

@@ -29,6 +29,7 @@
 .title h1{
 	font-family: sans-serif;
 	color: darkblue; 
+	margin-left: 2.5em;
 }
 
 .doador{
@@ -38,7 +39,9 @@
 
 .doador h1{
 	font-family: sans-serif;
-	color: darkblue; 
+    color: darkblue;
+    margin-top: 2.8em;
+    margin-left: 1em;
 }
 
 .doador img{

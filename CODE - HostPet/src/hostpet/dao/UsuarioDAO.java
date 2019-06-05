@@ -73,7 +73,7 @@ public class UsuarioDAO {
 		try {
 			
 			stmt = conexao.getConnection().prepareStatement("update usuario set senha=? where email=?;");
-			stmt.setString(1, usuario.getSenha());
+			stmt.setString(1, md5(usuario.getSenha()));
 			stmt.setString(2, usuario.getEmail());
 			stmt.executeUpdate();
 			stmt.close();
@@ -206,7 +206,7 @@ public class UsuarioDAO {
 				
 				PreparedStatement ps = conexao.getConnection()
 						.prepareStatement("insert into usuario (nome, email, cidade, estado, login, senha, " + 
-				"telefone, cpf, datanascimento) values (?,?,?,?,?,?,?,?,?);");
+				"telefone, cpf, datanascimento, foto) values (?,?,?,?,?,?,?,?,?);");
 				
 				ps.setString(1, usuario.getNome());
 				ps.setString(2, usuario.getEmail());
@@ -217,6 +217,7 @@ public class UsuarioDAO {
 				ps.setString(7, usuario.getTelefone());
 				ps.setString(8, usuario.getCpf());
 				ps.setDate(9, (Date) usuario.getNascimento());
+				ps.setString(10, usuario.getFoto());
 				ps.execute();
 				ps.close();
 			

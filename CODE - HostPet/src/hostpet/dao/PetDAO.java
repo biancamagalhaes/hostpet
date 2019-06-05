@@ -25,23 +25,91 @@ public class PetDAO {
 		//System.out.println(listaPet.toString());
 	}
 	
+	public List<Pet> doacao(Usuario u) {
+		PreparedStatement stmt;
+		List<Pet> pets = new ArrayList<>();
+ 	try{	
+ 		stmt = conexao.getConnection().prepareStatement("select nome,foto,id_pet from pet where id_usuariod = ? ");
+ 		stmt.setInt(1, u.getId());
+ 		ResultSet rs = stmt.executeQuery();
+ 		while(rs.next()) {
+ 			Pet p = new Pet();
+			p.setNome(rs.getString("nome"));
+			p.setFoto(rs.getString("foto"));
+			p.setId(rs.getInt("id_pet"));
+			
+			pets.add(p);
+ 		}
+ 		}catch (Exception e) {
+			// TODO: handle exception
+		}
+ 		return pets;
+	}
+	
+	public List<Pet> adocao(Usuario u) {
+		PreparedStatement stmt;
+		List<Pet> pets = new ArrayList<>();
+ 	try{	
+ 		stmt = conexao.getConnection().prepareStatement("select nome,foto,id_pet from pet where id_usuarioa = ? ");
+ 		stmt.setInt(1, u.getId());
+ 		ResultSet rs = stmt.executeQuery();
+ 		while(rs.next()) {
+ 			Pet p = new Pet();
+			p.setNome(rs.getString("nome"));
+			p.setFoto(rs.getString("foto"));
+			p.setId(rs.getInt("id_pet"));
+			
+			pets.add(p);
+ 		}
+ 		}catch (Exception e) {
+			// TODO: handle exception
+		}
+ 		return pets;
+	}
+	
+	public void adotante(String nome, String adotante, Usuario user) {
+		PreparedStatement stmt;
+ 	try{	
+ 		stmt = conexao.getConnection().prepareStatement("select id_usuario, telefone, email,nome from usuario where nome=? ");
+ 		stmt.setString(1, adotante);
+ 		ResultSet rs = stmt.executeQuery();
+ 		int id = Integer.parseInt(rs.getString("id_usuario"));
+ 		Usuario u = new Usuario();
+ 		u.setEmail(rs.getString("email"));
+ 		u.setTelefone(rs.getString("telefone"));
+ 		u.setNome(rs.getString("nome"));
+ 		RecuperarSenhaDAO s = new RecuperarSenhaDAO();
+ 		s.emailDoador(user.getEmail(), u);
+		stmt = conexao.getConnection().prepareStatement("update pet set id_usuarioa=? where nome=?");
+		stmt.setString(1, nome);
+		stmt.executeQuery();
+ 		}catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
 	public List<Pet> filtro(Pet pet, Usuario usuario) {
 		PreparedStatement stmt;
 		List<Pet> pets = new ArrayList<>();
 		try {
 			
-			stmt = conexao.getConnection().prepareStatement("select pet.nome as nomePet, pet.foto as fotoPet, id_pet from pet,usuario where tipo=? and usuario.cidade=? and porte=?;");
+			stmt = conexao.getConnection().prepareStatement("select pet.nome as nomePet, pet.foto as fotoPet, id_pet from pet, usuario group by pet.nome, pet.foto, pet.id_pet, usuario.cidade having tipo=? and usuario.cidade=? and porte=?");
+			System.out.println("tipo" + pet.getTipo().toString());
 			stmt.setString(1, pet.getTipo().toString());
+			System.out.println("usuario" + usuario.getCidade());
 			stmt.setString(2, usuario.getCidade());
+			System.out.println("porte" + pet.getPorte().toString());
 			stmt.setString(3, pet.getPorte().toString());
 			ResultSet rs = stmt.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				Pet p = new Pet();
-				pet.setNome(rs.getString("nomePet"));
-				pet.setFoto(rs.getString("fotoPet"));
-				pet.setId(rs.getInt("id_pet"));
+				p.setNome(rs.getString("nomePet"));
+				System.out.println(rs.getString("nomePet"));
+				p.setFoto(rs.getString("fotoPet"));
+				System.out.println(rs.getString("fotoPet"));
+				p.setId(rs.getInt("id_pet"));
 				
-				pets.add(pet);
+				pets.add(p);
 			}
 			stmt.close();
 		} catch (Exception e) {
